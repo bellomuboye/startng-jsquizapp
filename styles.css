@@ -304,9 +304,17 @@ button {
 /******************************RESULTS PAGE**************************/
 .r-bgimg  {
   background-image: url(22.jpg);
-background-size: unset;
+background-size: cover;
+width: 100%;
 background-repeat: no-repeat;
 }
+
+@media(max-width: 992px) {
+  .r-bgimg  {
+    display: none;
+  }
+}
+
 #results-page {
   background-color: #F7F7F7;
   background-size: cover;
