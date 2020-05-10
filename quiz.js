@@ -10,6 +10,7 @@ const addForm = document.querySelector(".add");
 const restartButton = document.querySelector(".restart-btn");
 const nextButton = document.querySelector("#next-btn");
 const submitButton = document.querySelector("#submit-btn");
+const alert = document.querySelector("#alert");
 let currentIndex = 0;
 let points = 0;
 
@@ -27,9 +28,11 @@ restartButton.addEventListener("click", function () {
 });
 
 nextButton.addEventListener("click", function () {
+  alert.classList.add("hide")
   currentIndex++;
   if (currentIndex + 1 > questionsArr.length) {
-    alert("You have finished answering all questions, Submit your quiz");
+    alert.classList.remove("hide");
+    alert.textContent = "You have finished answering all questions, Submit your quiz";
   } else {
     showQuestions(questionsArr[currentIndex]);
   }
@@ -37,7 +40,8 @@ nextButton.addEventListener("click", function () {
 
 submitButton.addEventListener("click", function () {
   if (currentIndex + 1 < questionsArr.length) {
-    alert("You haven't finished answering all questions");
+    alert.classList.remove("hide");
+    alert.textContent = "You haven't finished answering all questions";
   } else {
     endQuiz();
   }
@@ -62,6 +66,7 @@ const showQuestions = (question) => {
   question.questionOptions.forEach((element) => {
     const button = document.createElement("button");
     button.classList.add("question-option");
+    button.dataset.typebutton = true;
     button.innerHTML = element.option;
     if (element.correct == "true") {
       button.dataset.correct = true;
@@ -73,30 +78,32 @@ const showQuestions = (question) => {
 
 function checkAnswer(event) {
   selectedOption = event.target;
-  correct = selectedOption.dataset.correct;
+  if (selectedOption.dataset.typebutton) {
+    correct = selectedOption.dataset.correct;
 
-  if (correct) {
-    points += 10;
-    scoreCounter.textContent = points;
-  }
-
-  const answerStatus = document.querySelector(
-    ".answer-status" + (currentIndex + 1)
-  );
-  Array.from(questionOptions.children).forEach((button) => {
-    button.setAttribute("disabled", "disabled");
     if (correct) {
-      selectedOption.classList.add("correct");
-      answerStatus.classList.add("correct");
-    } else {
-      selectedOption.classList.add("wrong");
-      answerStatus.classList.add("wrong");
-      if (button.dataset.correct) {
-        button.classList.add("correct");
-        answerStatus.classList.add("correct");
-      }
+      points += 10;
+      scoreCounter.textContent = points;
     }
-  });
+
+    const answerStatus = document.querySelector(
+      ".answer-status" + (currentIndex + 1)
+    );
+    Array.from(questionOptions.children).forEach((button) => {
+      button.setAttribute("disabled", "disabled");
+      if (correct) {
+        selectedOption.classList.add("correct");
+        answerStatus.classList.add("correct");
+      } else {
+        selectedOption.classList.add("wrong");
+        answerStatus.classList.add("wrong");
+        if (button.dataset.correct) {
+          button.classList.add("correct");
+          answerStatus.classList.add("correct");
+        }
+      }
+    });
+  }
 }
 
 function endQuiz() {

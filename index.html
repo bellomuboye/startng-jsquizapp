@@ -4,38 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz App | bellomuboye</title>
-    <link rel="icon" href="favicon.ico" >
-    <link href="https://fonts.googleapis.com/css2?family=Cabin&family=Galada&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cabin&family=Galada&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div id="welcome-page" class="w-bgimg page row">
-      <div class="halfcolumn "></div>
+    <div id="welcome-page" class="page row">
+      
       <div class="halfcolumn centers">
+        <img src="439-4397303_programmers-png-transparent-png.png" alt="" />
+      </div>
+      <div id="moving" class="halfcolumn centers">
         <div class="container">
-          <div class="w-transparency">
-            <h1 class="quiz-name">StartNG 2020 Quiz</h1>
+          <h1 class="quiz-name">StartNG 2020 Quiz</h1>
           <div class="user-name-container">
             <form class="add">
               <label class="heading">What's your name?</label>
               <input type="text" class="" name="add" />
             </form>
           </div>
-            <div class="instructions-text">
-              <p>
-                Input your name above and press the Enter key afterwards to begin the Quiz
-              </p>
-            </div>
-          </div>
-          
-          </div>
-          <div>
+          <div class="instructions-text">
+            <p>
+              Input your name above and press the Enter key afterwards to begin
+              the Quiz
+            </p>
           </div>
         </div>
+        <div></div>
       </div>
     </div>
 
-    <div id="quiz-page" class="page row hide">
+    <div id="quiz-page" class="page row hide ">
       <div class="thirdscolumn candidate-details">
         <img src="avatar.jpg" alt="avatar" class="avatar" />
         <p>Candidate Name</p>
@@ -44,6 +46,7 @@
       <div class="seventhscolumn quiz-details">
         <div class="row width100">
           <div class="seventhscolumn">
+            <div id=alert class="hide">Alert</div>
             <h1 class="question-index">Question 1</h1>
             <p class="question-text">
               question text question text question text question text
@@ -73,22 +76,21 @@
       </div>
     </div>
 
-    <div id="results-page" class=" page row hide ">
-      <div class="halfcolumn centers">
+    <div id="results-page" class="page row hide">
+      <div id="first" class="halfcolumn centers">
         <div class="container">
-          <div class="r-transparency">
-            <h1 class="quiz-name">StartNG 2020 Quiz</h1>
-          <p class="heading">Submission Received</p>
+          <h1 class="quiz-name">StartNG 2020 Quiz</h1>
+          <p class="heading">Submission Received!!</p>
           <p>Candidate Name: <span class="user-name-result">Name</span></p>
-        
+
           <p>Score is</p>
           <p class="total-score">0</p>
           <button class="restart-btn bold-btn">Take Quiz Again</button>
-          </div>
-          
         </div>
       </div>
-      <div class="halfcolumn r-bgimg"></div>
+      <div id="moving2" class="halfcolumn centers">
+        <img src="439-4397303_programmers-png-transparent-png.png" alt="" />
+      </div>
     </div>
 
     <script src="quiz.js"></script>

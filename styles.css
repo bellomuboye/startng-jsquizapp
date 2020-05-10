@@ -1,3 +1,19 @@
+@media (max-width: 992px) {
+  div#moving{
+    position: relative;
+    top: -30%
+  }
+  div#moving2{
+    position: relative;
+    top: -30%;
+  }
+  div#first.halfcolumn.centers  {
+    z-index: 2;
+  }
+  .restart-btn  {
+    margin-bottom: 20px;
+  }
+}
 *,
 *::after,
 *::before {
@@ -119,8 +135,20 @@ button {
 /**************************WELCOME PAGE********************/
 
 #welcome-page {
-  background-color: #F7F7F7
+  background-color: #000000;
+  /* #F7F7F7; */
+  padding: 7% 15%;
 }
+
+#welcome-page img {
+  width: 100%;
+}
+
+#welcome-page .halfcolumn{
+  background-color: #F7F7F7;
+}
+
+
 
 @media (max-width: 992px) {
   .avatar {
@@ -139,11 +167,6 @@ button {
   border-radius: 100%;
 }
 
-.w-bgimg  {
-  background-image: url(439-4397303_programmers-png-transparent-png.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-}
 
 .w-transparency {
   background-color: rgba(255, 255, 255, 0.95)
@@ -181,6 +204,7 @@ button {
   border: 0;
   border-bottom: 2px solid;
   font-family: "Galada";
+  background-color: inherit;
 }
 
 .instructions-text {
@@ -193,8 +217,7 @@ button {
   color: white;
   padding: 2%;
   font-weight: bold;
-  border-bottom-left-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
+
 }
 
 .user-name,
@@ -209,7 +232,10 @@ button {
   padding: 7% 15%;
 }
 
-
+div#alert  {
+  background-color: red;
+  padding: 10px;
+}
 .candidate-details {
   text-align: center;
 }
@@ -302,22 +328,20 @@ button {
 }
 
 /******************************RESULTS PAGE**************************/
-.r-bgimg  {
-  background-image: url(22.jpg);
-background-size: cover;
-width: 100%;
-background-repeat: no-repeat;
-}
 
-@media(max-width: 992px) {
-  .r-bgimg  {
-    display: none;
-  }
-}
 
 #results-page {
+  background-color: #000000;
+  /* #F7F7F7; */
+  padding: 7% 15%;
+}
+
+#results-page .halfcolumn{
   background-color: #F7F7F7;
-  background-size: cover;
+}
+
+#results-page img {
+  width: 100%;
 }
 #results-page p {
   font-size: 1.3rem;
